@@ -7,17 +7,25 @@ namespace EvenOddNumberChecker
         static void Main(string[] args)
         {
             Console.WriteLine("Please enter a number");
-            string input = Console.ReadLine();
-            int inputNumber = Convert.ToInt32(input);
+            try
+            {
+                string input = Console.ReadLine();
+                int inputNumber = Convert.ToInt32(input);
 
-            if (inputNumber % 2 != 0)
-            {
-                Console.WriteLine($"{inputNumber} is an odd number");
+                if (inputNumber % 2 != 0)
+                {
+                    Console.WriteLine($"{inputNumber} is an odd number");
+                }
+                else
+                {
+                    Console.WriteLine($"{inputNumber} is an even number");
+                }
             }
-            else
+            catch (FormatException e)
             {
-                Console.WriteLine($"{inputNumber} is an even number");
+                Console.WriteLine($"FormatException Handler: {e}");
             }
+            
         }
     }
 }
